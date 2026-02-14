@@ -1,5 +1,6 @@
 import { Poppins } from 'next/font/google'
 import '../assets/styles/globals.css'
+import { Toaster } from '@/components/ui/sonner'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -8,15 +9,19 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Sapientia',
-  description: "Online learning hub with Next JS, Tailwind, Shadcn and Mongo DB.",
-};
+  description: 'Online learning hub with Next JS, Tailwind, Shadcn and Mongo DB.',
+}
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={poppins.className}>
         {children}
+        <Toaster
+          richColors
+          position='top'
+        />
       </body>
     </html>
-  );
+  )
 }
