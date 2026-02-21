@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  sapientia-mongo:
+    image: mongo:6.0
+    container_name: sapientia-mongo
+    restart: unless-stopped
+    ports:
+      - "${MONGO_LOCAL_PORT}:27017"
+    environment:
+      # These variables tell Mongo to create a root user on first start
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      # This tells Mongo which database to use for the init scripts
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    volumes:
+      - sapientia-data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  sapientia-data:

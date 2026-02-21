@@ -1,0 +1,37 @@
+// seed.js
+
+var collections = [
+  { name: "assessments", file: "assessments.json" },
+  { name: "categories", file: "categories.json" },
+  { name: "certificate", file: "certificate.json" },
+  { name: "courses", file: "courses.json" },
+  { name: "enrollments", file: "enrollments.json" },
+  { name: "lessons", file: "lessons.json" },
+  { name: "lives", file: "lives.json" },
+  { name: "modules", file: "modules.json" },
+  { name: "quiz-assessment", file: "quiz-assessment.json" },
+  { name: "quiz-set", file: "quiz-set.json" },
+  { name: "quizsets", file: "quizsets.json" },
+  { name: "quizzes", file: "quizzes.json" },
+  { name: "reports", file: "reports.json" },
+  { name: "testimonials", file: "testimonials.json" },
+  { name: "users", file: "users.json" },
+  { name: "watches", file: "watches.json" },
+  { name: "watch-history", file: "watch-history.json" }
+];
+
+collections.forEach(function(col) {
+  var path = "/docker-entrypoint-initdb.d/" + col.file;
+  var json = cat(path);
+  var data = JSON.parse(json);
+
+  var collection = db.getCollection(col.name);
+
+  if (Array.isArray(data)) {
+    if (data.length > 0) {
+      collection.insertMany(data);
+    }
+  } else {
+    collection.insertOne(data);
+  }
+});
