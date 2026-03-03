@@ -1,6 +1,7 @@
 import { Poppins } from 'next/font/google'
 import '../assets/styles/globals.css'
 import { Toaster } from '@/components/ui/sonner'
+import { dbConnect } from '@/service/mongo'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -12,7 +13,11 @@ export const metadata = {
   description: 'Online learning hub with Next JS, Tailwind, Shadcn and Mongo DB.',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const conn = await dbConnect()
+  
+  console.log(conn)
+
   return (
     <html lang='en'>
       <body className={poppins.className}>
