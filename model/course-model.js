@@ -29,21 +29,25 @@ const courseSchema = new Schema({
     required: true,
     type: Boolean
   },
-  category: {
-    required: true,
-    type: Schema.ObjectId
+  category: { 
+    type: Schema.ObjectId,
+    ref: 'Category'
   },
   instructor: {
-    required: true,
-    type: Schema.ObjectId
+    type: Schema.ObjectId,
+    ref: 'User'
   },
   testimonials: {
     required: true,
     type: [Schema.ObjectId]
   },
-  quizType: {
+  quizSet: {
     required: true,
     type: Schema.ObjectId
+  },
+  learning: {
+    required: true,
+    type: [String]
   },
   createdOn: {
     required: true,
