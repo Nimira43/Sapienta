@@ -37,10 +37,10 @@ const courseSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-  testimonials: {
-    required: true,
-    type: [Schema.ObjectId]
-  },
+  testimonials: [{
+    type: Schema.ObjectId,
+    ref: 'Testimonial'
+  }],
   quizSet: {
     required: true,
     type: Schema.ObjectId
