@@ -1,7 +1,9 @@
 const SectionTitle = () => {
-  return (  
-    <div>SectionTitle</div>
+  return (
+    <div>
+      Section Title      
+    </div>
   )
 }
- 
+
 export default SectionTitle

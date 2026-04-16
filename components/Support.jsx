@@ -1,7 +1,9 @@
 const Support = () => {
-  return (  
-    <div>Support Component</div>
+  return (
+    <div>
+      Support
+    </div>
   )
 }
- 
+
 export default Support
