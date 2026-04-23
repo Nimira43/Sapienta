@@ -58,6 +58,11 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+.transitioning {
+  transition: all 0.5s ease-in-out;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -67,6 +72,20 @@
   }
 }
 
-.transitioning {
-  transition: all 0.5s ease-in-out;
-} 
+@layer components {
+  .btn {
+    @apply text-light px-6 py-3 rounded-md font-medium uppercase hover:opacity-90 transitioning;
+  }
+  
+  .dark-bg {
+    @apply bg-dark;
+  }
+  
+  .main-bg {
+    @apply bg-main;
+  }
+}
+
+
+
+

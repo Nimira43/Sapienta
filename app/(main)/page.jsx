@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { formatPrice } from '@/lib/formatPrice'
-import SectionTitle from '@/components/SectionTitle'
-import Element from '@/components/Element'
 import Support from '@/components/Support'
 import { categories, courses } from '@/components/data/uiData'
 import { PiBookOpenUser } from 'react-icons/pi'
@@ -16,19 +14,18 @@ export default function HomePage() {
           <h1 className='text-4xl md:text-6xl font-medium tracking-tight text-dark'>
             Master New Skills with Sapientia
           </h1>
-          <SectionTitle />
 
           <p className='text-grey-1 max-w-2xl text-lg'>
             High-quality courses taught by real experts. Learn at your pace. Build your future.
           </p>
 
           <div className='flex gap-4 mt-4'>
-            <Button className='px-6 py-3 text-lg'>
+            <button className='btn dark-bg'>
               Browse Courses
-            </Button>
-            <Button variant='outline' className='px-6 py-3 text-lg'>
+            </button>
+            <button className='btn main-bg'>
               Become an Instructor
-            </Button>
+            </button>
           </div>
 
         </div>
@@ -121,6 +118,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <Support />
     </div>
   )
 }
