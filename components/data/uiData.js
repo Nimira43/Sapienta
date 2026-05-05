@@ -2,6 +2,13 @@ import { PiCamera, PiChartLine, PiDesktop, PiGraduationCap, PiMusicNote, PiPaint
 import { SiFuturelearn } from 'react-icons/si'
 import { IoBusinessOutline } from 'react-icons/io5'
 
+export const navLinks = [
+  { title: 'Features', href: '/features'},
+  { title: 'Pricing', href: '/pricing'},
+  { title: 'Blog', href: '/blog'},
+  { title: 'Docs', href: '/documentation'},
+]
+
 export const categories = [
   { id: 1, title: 'Design', icon: PiPaintBrush },
   { id: 2, title: 'Development', icon: SiFuturelearn },

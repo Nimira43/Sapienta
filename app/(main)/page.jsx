@@ -7,11 +7,11 @@ import { PiBookOpenUser } from 'react-icons/pi'
 
 export default function HomePage() {
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col items-center mt-36'>
 
-      <section className='w-full bg-grey-5 border-b'>
+      <section className='w-full bg-background border-b'>
         <div className='container mx-auto max-w-6xl py-24 text-center flex flex-col items-center gap-6'>
-          <h1 className='text-4xl md:text-6xl font-medium tracking-tight text-dark'>
+          <h1 className='text-4xl md:text-6xl logo-text font-medium tracking-tight text-dark'>
             Master New Skills with Sapientia
           </h1>
 
