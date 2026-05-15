@@ -1,12 +1,18 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { useState } from 'react'
 import { Button } from './ui/button'
 import { VscMenu } from 'react-icons/vsc'
 import { LiaTimesSolid } from 'react-icons/lia'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
-function MainNav({items, children}) {
+import MobileNav from './MobileNav'
+
+function MainNav({ items, children }) {
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
   return (
     <>
       <div className='flex gap-6 lg:gap-10'>
@@ -39,6 +45,11 @@ function MainNav({items, children}) {
             ) 
             : null
         }
+        {showMobileMenu && items && (
+          <MobileNav items={items}>
+            {children}
+          </MobileNav>
+        )}
       </div>
       <nav className='flex items-center gap-3'>
         <div className='items-center gap-3 hidden lg:flex'>
@@ -129,6 +140,16 @@ function MainNav({items, children}) {
               </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
+        <button
+          className='flex items-center space-x-2 lg:hidden'
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+        >
+          {showMobileMenu
+            ? <LiaTimesSolid />
+            : <VscMenu />
+          }
+        </button>
+      
       </nav>
     </>   
   )
