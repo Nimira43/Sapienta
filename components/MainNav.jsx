@@ -25,8 +25,7 @@ function MainNav({ items, children }) {
           items?.length
             ? (
               <nav className='hidden gap-6 lg:flex'>
-                {
-                  items?.map((item, index) => (
+                {items?.map((item, index) => (
                     <Link
                       key={index}
                       href={item.disable 
@@ -39,8 +38,7 @@ function MainNav({ items, children }) {
                     >
                       {item.title}
                     </Link>
-                  ))
-                }
+                  ))}
               </nav>
             ) 
             : null
